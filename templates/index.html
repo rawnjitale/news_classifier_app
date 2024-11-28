@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Category Predictor</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .container { max-width: 500px; margin: auto; }
+        input[type="text"], textarea { width: 100%; padding: 10px; margin: 10px 0; }
+        button { padding: 10px 20px; background-color: #007bff; color: #fff; border: none; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        .result { margin-top: 20px; font-weight: bold; color: #333; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>News Category Predictor</h1>
+        <form action="/predict" method="POST">
+            <label for="text">Enter News Text:</label>
+            <textarea id="text" name="text" rows="6" required></textarea>
+            <button type="submit">Predict Category</button>
+        </form>
+        {% if prediction %}
+        <div class="result">
+            Predicted Category: 
+            {{prediction}}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
